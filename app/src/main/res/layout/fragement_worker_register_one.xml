@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_one"
+    android:background="@color/blue">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="164dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/worker_layout_background"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="136dp"
+            android:layout_height="112dp"
+            android:layout_gravity="center"
+            android:paddingTop="8dp"
+            android:src="@drawable/ic_worker" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/WorkerFName"
+        android:layout_width="331dp"
+        android:paddingTop="5dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edit_text_style2"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="الإسم الخاص"
+        android:paddingRight="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <EditText
+        android:id="@+id/WorkerLName"
+        android:paddingTop="5dp"
+        android:layout_width="331dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edit_text_style2"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="الإسم العائلي"
+        android:paddingRight="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WorkerFName" />
+
+    <Spinner
+        android:id="@+id/Service"
+        android:layout_width="331dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/edit_text_style2"
+        android:paddingRight="14dp"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WorkerLName"
+        tools:ignore="MissingConstraints"></Spinner>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "834998038516",
+    "firebase_url": "https://khidmati-da35a.firebaseio.com",
+    "project_id": "khidmati-da35a",
+    "storage_bucket": "khidmati-da35a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834998038516:android:2f5a6471f67bd377ead3a1",
+        "android_client_info": {
+          "package_name": "com.example.dell.khadamate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834998038516-sjthbbbb933gcgv21gvb9gactrkricp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dell.khadamate",
+            "certificate_hash": "e06c2c03a7fde9920acb1eaad4e4fe0336b4e7b0"
+          }
+        },
+        {
+          "client_id": "834998038516-pvvg5pkhf0epavirjtj0548d6bdlbtu1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl1XoPgH5_KwmLVknHtxz6s5EKCNomKnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834998038516-pvvg5pkhf0epavirjtj0548d6bdlbtu1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

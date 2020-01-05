@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_worker_homePage"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="الصفحة الرئيسية" />
+        <item
+            android:id="@+id/nav_worker_personal"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="معلوماتك الشخصية" />
+        <item
+            android:id="@+id/nav_worker_payment"
+            android:enabled="false"
+            android:icon="@drawable/ic_credit_card_black_24dp"
+            android:checkable="false"
+            android:title="بطاقة الدفع" />
+        <item
+            android:id="@+id/nav_worker_logout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="خروج" />
+    </group>
+
+
+
+</menu>
