@@ -1,29 +1,17 @@
 package com.example.dell.khadamate.Fragments;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.dell.khadamate.Model.Reaction;
-import com.example.dell.khadamate.MyLocationListener;
 import com.example.dell.khadamate.R;
-import com.example.dell.khadamate.Workers;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -37,85 +25,112 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import static android.content.Context.LOCATION_SERVICE;
-import static android.widget.Toast.LENGTH_SHORT;
 import static com.example.dell.khadamate.splashScreen.myRef;
 import static com.example.dell.khadamate.splashScreen.user;
 
 public class WorkerHomePageFragment extends Fragment {
     private PieChart mPieChart;
-    TextView mWorkerMail;
-    int AllReaction = 0 , LikeReaction=0, DislikeReaction=0, UnReaction=0;
-    DatabaseReference reactionRef ;
+    private TextView mWorkerMail;
+    private DatabaseReference reactionRef;
+    private Query reactionRefQuery;
+    private ValueEventListener reactionListener;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("الصفحة الرئيسية");
+        if (getActivity() != null) {
+            getActivity().setTitle(R.string.home_title);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_worker_home_page, container, false);
         mWorkerMail = v.findViewById(R.id.WorkerMail);
-        //mWorkerMail.setText(user.getEmail());
+        if (user != null && user.getEmail() != null && mWorkerMail != null) {
+            mWorkerMail.setText(user.getEmail());
+        }
+
         reactionRef = myRef.child("reactions");
-
-
-
-        mPieChart = (PieChart) v.findViewById(R.id.pieChart);
+        mPieChart = v.findViewById(R.id.pieChart);
         mPieChart.setUsePercentValues(true);
         mPieChart.getDescription().setEnabled(false);
-        mPieChart.setExtraOffsets(5,10,5,5);
+        mPieChart.setExtraOffsets(5, 10, 5, 5);
         mPieChart.setDragDecelerationFrictionCoef(0.95f);
-
         mPieChart.setDrawHoleEnabled(true);
-        mPieChart.setHoleColor(R.color.profileBackgroundColor);
+        mPieChart.setHoleColor(Color.parseColor("#F0FDFA"));
         mPieChart.setTransparentCircleRadius(61.f);
-        ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();
-        Query reactionRefQuery = (Query) reactionRef.orderByChild("reactedFullName").equalTo(user.getFName()+" "+user.getLName());
-        reactionRefQuery.addValueEventListener(new ValueEventListener() {
+        mPieChart.setNoDataText(getString(R.string.no_ratings_yet));
+
+        if (user == null) {
+            return v;
+        }
+
+        reactionRefQuery = reactionRef.orderByChild("reactedFullName")
+                .equalTo(user.getFName() + " " + user.getLName());
+        reactionListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot reactions : dataSnapshot.getChildren()){
+                int allReaction = 0;
+                int likeReaction = 0;
+                int dislikeReaction = 0;
+                int unReaction = 0;
+
+                for (DataSnapshot reactions : dataSnapshot.getChildren()) {
                     Reaction reaction = reactions.getValue(Reaction.class);
-                    switch (reaction.getReaction()){
-                        case "Like": LikeReaction++;break;
-                        case "Dislike":DislikeReaction++;break;
-                        case "Unlike":UnReaction++;break;
+                    if (reaction == null || reaction.getReaction() == null) {
+                        continue;
                     }
-                    AllReaction++;
+                    switch (reaction.getReaction()) {
+                        case "Like":
+                            likeReaction++;
+                            break;
+                        case "Dislike":
+                            dislikeReaction++;
+                            break;
+                        case "Unlike":
+                            unReaction++;
+                            break;
+                    }
+                    allReaction++;
                 }
-                Log.e("Poucentage : ",""+LikeReaction);
-                Log.e("Poucentage : ",""+DislikeReaction);
-                if(AllReaction != 0){
-                    yValues.add(new PieEntry((LikeReaction*100)/AllReaction,"الراضين"));
-                    yValues.add(new PieEntry((DislikeReaction*100)/AllReaction,"المستائين"));
-                    yValues.add(new PieEntry((UnReaction*100)/AllReaction,"المحايديين"));
-                    PieDataSet dataSet = new PieDataSet(yValues,"الزبناء");
+
+                if (allReaction != 0) {
+                    ArrayList<PieEntry> yValues = new ArrayList<>();
+                    yValues.add(new PieEntry((likeReaction * 100f) / allReaction, getString(R.string.satisfied)));
+                    yValues.add(new PieEntry((dislikeReaction * 100f) / allReaction, getString(R.string.unsatisfied)));
+                    yValues.add(new PieEntry((unReaction * 100f) / allReaction, getString(R.string.neutral)));
+                    PieDataSet dataSet = new PieDataSet(yValues, getString(R.string.clients));
                     dataSet.setSliceSpace(3f);
                     dataSet.setSelectionShift(5f);
                     dataSet.setColors(ColorTemplate.LIBERTY_COLORS);
-
                     PieData data = new PieData(dataSet);
                     data.setValueTextSize(10f);
                     data.setValueTextColor(Color.YELLOW);
-
+                    mPieChart.clear();
                     mPieChart.setData(data);
-                }else{
-                    mPieChart.setNoDataText("المعلومات غير متاحة أو أن حسابكم لم يتم تقييمه بعد");
+                    mPieChart.invalidate();
+                } else {
+                    mPieChart.clear();
+                    mPieChart.setNoDataText(getString(R.string.no_ratings_yet));
+                    mPieChart.invalidate();
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
-        });
-
-
+        };
+        reactionRefQuery.addValueEventListener(reactionListener);
         return v;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (reactionRefQuery != null && reactionListener != null) {
+            reactionRefQuery.removeEventListener(reactionListener);
+        }
     }
 }

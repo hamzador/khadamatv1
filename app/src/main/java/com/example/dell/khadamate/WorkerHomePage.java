@@ -42,8 +42,13 @@ public class WorkerHomePage extends AppCompatActivity
         TextView navEmail = (TextView) headerView.findViewById(R.id.WorkerMail);
         ImageView imageView  = (ImageView) headerView.findViewById(R.id.workerImageView);
         imageView.setImageResource(R.drawable.ic_user_avatar);
-        navUsername.setText(""+user.getFullName());
-        navEmail.setText(""+user.getEmail());
+        if (user != null) {
+            navUsername.setText(user.getFullName() != null ? user.getFullName() : getString(R.string.app_name));
+            navEmail.setText(user.getEmail() != null ? user.getEmail() : "");
+        } else {
+            navUsername.setText(R.string.app_name);
+            navEmail.setText("");
+        }
         navigationView.setNavigationItemSelectedListener(this);
 
 

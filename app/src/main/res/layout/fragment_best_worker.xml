@@ -2,20 +2,36 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_bestWorker"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_bestWorker"
     android:background="@color/background"
     tools:context=".Fragments.BestWorker">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/BestWorkerRecyclerView"
-        android:layout_width="385dp"
-        android:layout_height="479dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.RecyclerView>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/emptyBestWorkers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:gravity="center"
+        android:text="@string/no_best_workers"
+        android:textColor="@color/textSecondary"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

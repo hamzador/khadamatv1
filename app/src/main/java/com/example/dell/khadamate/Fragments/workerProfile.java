@@ -34,12 +34,14 @@ public class workerProfile extends Fragment {
         mWorkerAddressProfile = v.findViewById(R.id.WorkerAddressProfile);
         mTelephoneWorker = v.findViewById(R.id.TelephoneWorker);
 
-        mFullName.setText(user.getFullName());
-        mFirstName.setText(user.getFName());
-        mLastName.setText(user.getLName());
-        mMail.setText(user.getEmail());
-        mWorkerAddressProfile.setText(user.getAddress());
-        mTelephoneWorker.setText(user.getPhone());
+        if (user != null) {
+            mFullName.setText(user.getFullName());
+            mFirstName.setText(user.getFName());
+            mLastName.setText(user.getLName());
+            mMail.setText(user.getEmail());
+            mWorkerAddressProfile.setText(user.getAddress());
+            mTelephoneWorker.setText(user.getPhone());
+        }
         return v;
     }
 

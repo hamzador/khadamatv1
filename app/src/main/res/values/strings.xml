@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">khadamate</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">خدماتي</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="services">
         <item>--إختر مهنتك--</item>
@@ -11,11 +9,54 @@
         <item>كهربائي</item>
     </string-array>
     <string name="title_activity_home_page">الصفحة الرئيسية</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="navigation_drawer_open">فتح القائمة</string>
+    <string name="navigation_drawer_close">إغلاق القائمة</string>
+    <string name="nav_header_title">خدماتي</string>
+    <string name="nav_header_subtitle">ابحث عن أقرب حرفي</string>
+    <string name="nav_header_desc">رأس القائمة</string>
+    <string name="action_settings">الإعدادات</string>
     <string name="title_activity_worker_home_page">الصفحة الرئيسية</string>
+
+    <string name="home_title">الصفحة الرئيسية</string>
+    <string name="best_workers_title">الحرفيين الممتازين</string>
+    <string name="fill_all_fields">المرجو ملء جميع الخانات</string>
+    <string name="invalid_email">البريد الإلكتروني غير صالح</string>
+    <string name="password_too_short">كلمة المرور يجب أن تكون 6 أحرف على الأقل</string>
+    <string name="password_mismatch">كلمتا المرور غير متطابقتين</string>
+    <string name="registration_success">تم إنشاء الحساب بنجاح</string>
+    <string name="registration_failed">فشل إنشاء الحساب</string>
+    <string name="complete_previous_steps">المرجو إكمال الخطوات السابقة</string>
+    <string name="login_invalid">المرجو التأكد من المعلومات</string>
+    <string name="enter_email_for_reset">أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور</string>
+    <string name="reset_email_sent">تم إرسال رابط إعادة التعيين إلى بريدك</string>
+    <string name="reset_email_failed">تعذر إرسال رابط إعادة التعيين</string>
+    <string name="user_profile_missing">تعذر العثور على ملف المستخدم</string>
+    <string name="network_unavailable">الإنترنت غير متاح حالياً</string>
+    <string name="forgot_password">نسيت كلمة المرور ؟</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="open_account">فتح حساب</string>
+    <string name="email_hint">بريد المستخدم</string>
+    <string name="password_hint">كلمة المرور</string>
+    <string name="enable_location">رجاءً فعّل خاصية تحديد المواقع</string>
+    <string name="service_missing">الخدمة غير محددة</string>
+    <string name="no_workers_nearby">لا يوجد حرفيون متاحون حالياً</string>
+    <string name="no_best_workers">لم تقيّم أي حرفي بعد</string>
+    <string name="no_ratings_yet">المعلومات غير متاحة أو أن حسابكم لم يتم تقييمه بعد</string>
+    <string name="satisfied">الراضين</string>
+    <string name="unsatisfied">المستائين</string>
+    <string name="neutral">المحايديين</string>
+    <string name="clients">الزبناء</string>
+    <string name="profile_unavailable">الملف غير متاح</string>
+    <string name="phone_unavailable">رقم الهاتف غير متاح</string>
+    <string name="location_unavailable">الموقع غير متاح</string>
+    <string name="maps_unavailable">تطبيق الخرائط غير متوفر</string>
+    <string name="loading">جاري التحميل…</string>
+    <string name="call_worker">اتصال</string>
+    <string name="open_maps">الموقع</string>
+    <string name="available">متاح</string>
+    <string name="plumber">سمكري - بلومبي</string>
+    <string name="mechanic">ميكانيكي</string>
+    <string name="electrician">كهربائي</string>
+    <string name="carpenter">نجار</string>
+    <string name="choose_service_subtitle">اختر الحرفة التي تبحث عنها</string>
 </resources>

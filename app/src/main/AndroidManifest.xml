@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme.AppBarOverlay" />
         <activity
             android:name=".HomePage"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTask"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.PopupOverlay" />
         <activity

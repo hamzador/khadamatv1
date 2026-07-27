@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#0F766E</color>
+    <color name="colorPrimaryDark">#134E4A</color>
+    <color name="colorAccent">#F59E0B</color>
     <color name="statusBarWhiteColor">#E5E5E5</color>
-    <color name="orangeColor">#FF0019</color>
-    <color name="blue">#198cc0</color>
-    <color name="active_dots">#FF0019</color>
-    <color name="inactive_dots">#767676</color>
-    <color name="profileBackgroundColor">#efeded</color>
-    <color name="background">#dcdcdc</color>
+    <color name="orangeColor">#D97706</color>
+    <color name="blue">#0F766E</color>
+    <color name="active_dots">#F59E0B</color>
+    <color name="inactive_dots">#94A3B8</color>
+    <color name="profileBackgroundColor">#F0FDFA</color>
+    <color name="background">#ECFEFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="textPrimary">#134E4A</color>
+    <color name="textSecondary">#64748B</color>
+    <color name="danger">#DC2626</color>
 </resources>

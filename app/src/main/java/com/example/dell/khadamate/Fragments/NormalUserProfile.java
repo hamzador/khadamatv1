@@ -32,11 +32,12 @@ public class NormalUserProfile extends Fragment {
         mMail = v.findViewById(R.id.mail);
 
 
-        mFullName.setText(user.getFullName());
-        mFirstName.setText(user.getFName());
-        mLastName.setText(user.getLName());
-        mMail.setText(user.getEmail());
-
+        if (user != null) {
+            mFullName.setText(user.getFullName());
+            mFirstName.setText(user.getFName());
+            mLastName.setText(user.getLName());
+            mMail.setText(user.getEmail());
+        }
 
         return v;
     }

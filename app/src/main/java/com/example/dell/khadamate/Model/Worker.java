@@ -9,9 +9,9 @@ public class Worker {
     private double latitude;
     private double longitude;
     private double distance;
+    private String service;
 
-    public Worker(){
-
+    public Worker() {
     }
 
     public Worker(String firstname, String lastname, int dislikes, int likes, double latitude, double longitude) {
@@ -31,6 +31,18 @@ public class Worker {
         this.likes = likes;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public Worker(String firstname, String lastname, String fullName, int dislikes, int likes,
+                  double latitude, double longitude, String service) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        FullName = fullName;
+        this.dislikes = dislikes;
+        this.likes = likes;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.service = service;
     }
 
     public String getFirstname() {
@@ -89,6 +101,14 @@ public class Worker {
         this.distance = distance;
     }
 
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
     @Override
     public String toString() {
         return "worker{" +
@@ -98,6 +118,7 @@ public class Worker {
                 ", likes=" + likes +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
+                ", service='" + service + '\'' +
                 '}';
     }
 
@@ -109,4 +130,3 @@ public class Worker {
         FullName = fullName;
     }
 }
-
